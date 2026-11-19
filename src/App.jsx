@@ -7,6 +7,7 @@ import { ResultReport } from './components/ResultReport';
 import { HistoryModal } from './components/HistoryModal';
 import { StudentNameModal } from './components/StudentNameModal';
 import { ModuleCenter } from './components/ModuleCenter';
+import { QuestionManager } from './components/QuestionManager';
 import { QUESTIONS, TOPICS } from './data/questions';
 import { generateRandomQuestionSet } from './utils/dynamicQuestionGenerator';
 import {
@@ -68,7 +69,14 @@ function shuffleQuestionsData(sourceList, shuffleChoices = true) {
 export function App() {
   const [mode, setMode] = useState('study'); // 'study' or 'exam'
   const [selectedTopic, setSelectedTopic] = useState(TOPICS.ALL);
-  const [questionBank, setQuestionBank] = useState(() => QUESTIONS);
+  const [questionBank, setQuestionBank] = useState(() => {
+    try {
+      const saved = localStorage.getItem('java_pbo_custom_questions');
+      return saved ? JSON.parse(saved) : QUESTIONS;
+    } catch {
+      return QUESTIONS;
+    }
+  });
   const [currentFilteredIndex, setCurrentFilteredIndex] = useState(0);
   const [answers, setAnswers] = useState(() => {
     try {
@@ -96,13 +104,14 @@ export function App() {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname.toLowerCase();
       const hash = window.location.hash.toLowerCase();
+      if (path.startsWith('/manage') || hash.includes('manage') || hash.includes('soal')) return 'manage';
       if (path.startsWith('/video') || hash.includes('video')) return 'video';
       if (path.startsWith('/modul') || hash.includes('modul')) return 'modul';
     }
     return 'quiz';
   };
 
-  // View Mode: 'quiz', 'modul', or 'video'
+  // View Mode: 'quiz', 'modul', 'video', or 'manage'
   const [viewMode, setViewMode] = useState(getInitialViewMode);
 
   // Student Identity State
@@ -274,6 +283,9 @@ export function App() {
 
   // Reset to original questions
   const handleResetToDefault = () => {
+    try {
+      localStorage.removeItem('java_pbo_custom_questions');
+    } catch (e) {}
     setQuestionBank(QUESTIONS);
     setSelectedTopic(TOPICS.ALL);
     setAnswers({});
@@ -285,6 +297,29 @@ export function App() {
     localStorage.removeItem('java_pbo_flagged');
     setShuffleToast(`🔄 Bank soal dikembalikan ke ${QUESTIONS.length} Soal Lengkap Standar Ujian PBO.`);
     setTimeout(() => setShuffleToast(null), 3500);
+  };
+
+  // Handlers for QuestionManager
+  const handleUpdateQuestions = (newQuestions) => {
+    setQuestionBank(newQuestions);
+    try {
+      localStorage.setItem('java_pbo_custom_questions', JSON.stringify(newQuestions));
+    } catch (e) {
+      console.error('Failed to save custom questions', e);
+    }
+  };
+
+  const handleResetQuestions = () => {
+    handleResetToDefault();
+  };
+
+  const handleSelectQuestionFromManager = (qId) => {
+    setSelectedTopic(TOPICS.ALL);
+    const targetIdx = questionBank.findIndex(q => q.id === qId);
+    if (targetIdx !== -1) {
+      setCurrentFilteredIndex(targetIdx);
+    }
+    handleSetViewMode('quiz');
   };
 
   // Reset all
@@ -460,8 +495,16 @@ export function App() {
           </div>
         )}
 
-        {/* View Mode Switching: If in 'modul' or 'video', show ModuleCenter */}
-        {(viewMode === 'modul' || viewMode === 'video') ? (
+        {/* View Mode Switching: 'manage', 'modul', 'video', or 'quiz' */}
+        {viewMode === 'manage' ? (
+          <QuestionManager
+            questions={questionBank}
+            onUpdateQuestions={handleUpdateQuestions}
+            onResetQuestions={handleResetQuestions}
+            onSelectQuestion={handleSelectQuestionFromManager}
+            onBackToQuiz={() => handleSetViewMode('quiz')}
+          />
+        ) : (viewMode === 'modul' || viewMode === 'video') ? (
           <ModuleCenter
             viewMode={viewMode}
             onNavigate={handleSetViewMode}

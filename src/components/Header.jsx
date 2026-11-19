@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import React from 'react';
-import { BookOpen, GraduationCap, Clock, RotateCcw, Award, Shuffle, History, User, Video, CheckCircle2 } from 'lucide-react';
+import { BookOpen, GraduationCap, Clock, RotateCcw, Award, Shuffle, History, User, Video, CheckCircle2, Sliders } from 'lucide-react';
 
 export function Header({
   mode,
@@ -104,6 +104,21 @@ export function Header({
                 <span className="hidden sm:inline">Video</span>
                 <span className="sm:hidden">Video</span>
                 <span className="px-1.5 py-0.2 rounded-full bg-purple-400/20 text-purple-200 text-[10px] font-mono hidden md:inline">4</span>
+              </button>
+
+              {/* Menu 4: Kelola Bank Soal */}
+              <button
+                onClick={() => setViewMode('manage')}
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg font-medium transition-all cursor-pointer ${
+                  viewMode === 'manage'
+                    ? 'bg-emerald-500 text-slate-950 shadow-md font-bold'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+                }`}
+                title="Buka Pusat Pengelolaan & Bank Soal PBO"
+              >
+                <Sliders size={14} className={viewMode === 'manage' ? 'text-slate-950' : 'text-emerald-400'} />
+                <span className="hidden sm:inline">Kelola Soal</span>
+                <span className="sm:hidden">Kelola</span>
               </button>
             </div>
 
