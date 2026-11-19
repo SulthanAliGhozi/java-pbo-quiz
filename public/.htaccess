@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS redirection
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  RewriteBase /
+
+  # Serve real files directly (PDFs, MP4 videos, images, JS, CSS)
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Route /modul, /modul/, /video, /video/ to index.html for React SPA
+  RewriteRule ^modul(/.*)?$ /index.html [L]
+  RewriteRule ^video(/.*)?$ /index.html [L]
+
+  # Standard SPA fallback
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
