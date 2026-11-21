@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Pemrograman Berorientasi Objek (Java PBO) - Google Formulir</title>
+  <link rel="icon" href="https://ssl.gstatic.com/docs/forms/device_home/android_192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #f0ebf8;
+      font-family: 'Roboto', Arial, sans-serif;
+      color: #202124;
+      line-height: 1.5;
+      padding: 0 0 48px 0;
+    }
+    /* Google Forms Header Top Bar */
+    .gform-top-accent {
+      height: 140px;
+      background: linear-gradient(135deg, #673ab7 0%, #512da8 100%);
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .form-container {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 16px auto 0 auto;
+      padding: 0 12px;
+    }
+    /* Cards */
+    .card {
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      padding: 24px;
+      position: relative;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:focus-within, .card.card-active {
+      border-left: 5px solid #673ab7;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 1px 3px 0 rgba(60,64,67,0.2), 0 4px 8px 3px rgba(60,64,67,0.1);
+    }
+    .header-card {
+      border-top: 10px solid #673ab7;
+      padding-top: 22px;
+      margin-top: 16px;
+    }
+    .form-title {
+      font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: #202124;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .form-desc {
+      font-size: 14px;
+      color: #3c4043;
+      white-space: pre-line;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .account-badge {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #dadce0;
+      border-bottom: 1px solid #dadce0;
+      padding: 12px 0;
+      font-size: 13px;
+      color: #5f6368;
+      margin-bottom: 12px;
+    }
+    .account-email {
+      font-weight: 500;
+      color: #202124;
+    }
+    .required-notice {
+      color: #d93025;
+      font-size: 13px;
+    }
+    /* Section / Page title card */
+    .section-card {
+      background: #673ab7;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 18px 24px;
+      margin-bottom: 12px;
+    }
+    .section-card h2 {
+      font-family: 'Google Sans', 'Roboto', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .section-card p {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    /* Question blocks (.geS5n) */
+    .geS5n {
+      margin-bottom: 12px;
+    }
+    .M7eMe {
+      font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #202124;
+      line-height: 1.4;
+      margin-bottom: 14px;
+      word-break: break-word;
+    }
+    .M7eMe .req-star {
+      color: #d93025;
+      margin-left: 3px;
+    }
+    .g6Fdfe {
+      font-size: 13px;
+      color: #70757a;
+      margin-top: -8px;
+      margin-bottom: 14px;
+    }
+    .code-box {
+      background: #f8f9fa;
+      border: 1px solid #e8eaed;
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-family: 'Roboto Mono', ui-monospace, monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #1f2937;
+      margin-bottom: 14px;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* Option Items */
+    .docssharedWizToggleLabeledContainer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      cursor: pointer;
+      user-select: none;
+      padding: 6px 4px;
+      border-radius: 6px;
+      transition: background 0.15s ease;
+    }
+    .docssharedWizToggleLabeledContainer:hover {
+      background: rgba(103, 58, 183, 0.04);
+    }
+    .docssharedWizToggleLabeledLabelWrapper {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      cursor: pointer;
+    }
+    /* Google Forms Radio Icon */
+    .Od2FE {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #5f6368;
+      border-radius: 50%;
+      margin-right: 12px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s ease;
+    }
+    .Od2FE.is-checked {
+      border-color: #673ab7;
+    }
+    .Od2FE .radio-dot {
+      width: 10px;
+      height: 10px;
+      background: #673ab7;
+      border-radius: 50%;
+      display: none;
+    }
+    .Od2FE.is-checked .radio-dot {
+      display: block;
+    }
+
+    /* Google Forms Checkbox Icon */
+    .checkbox-box {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #5f6368;
+      border-radius: 2px;
+      margin-right: 12px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .checkbox-box.is-checked {
+      border-color: #673ab7;
+      background: #673ab7;
+    }
+    .checkbox-box svg {
+      display: none;
+      width: 14px;
+      height: 14px;
+      fill: #ffffff;
+    }
+    .checkbox-box.is-checked svg {
+      display: block;
+    }
+
+    .aDTYNe.snByac {
+      font-size: 14px;
+      color: #202124;
+      line-height: 1.4;
+    }
+
+    /* Google Forms Text Input Underline */
+    .input-underline-wrap {
+      padding: 8px 0;
+      width: 100%;
+      max-width: 380px;
+    }
+    .whsOnd.zHQkBf {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #dadce0;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 14px;
+      color: #202124;
+      padding: 6px 0 8px 0;
+      outline: none;
+      background: transparent;
+      transition: border-bottom-color 0.2s ease;
+    }
+    .whsOnd.zHQkBf:focus {
+      border-bottom: 2px solid #673ab7;
+      margin-bottom: -1px;
+    }
+
+    /* Navigation / Action Toolbar */
+    .gform-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 18px;
+      padding: 0 4px;
+    }
+    .gform-nav-left {
+      display: flex;
+      gap: 12px;
+    }
+    /* Buttons */
+    .uArJbe.y5DuKc {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 24px;
+      font-family: 'Google Sans', Roboto, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+    .uArJbe.M9Bg4d {
+      background-color: #673ab7;
+      color: #ffffff;
+      border: none;
+    }
+    .uArJbe.M9Bg4d:hover {
+      background-color: #5e35b1;
+      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+    }
+    .uArJbe.btn-secondary {
+      background: transparent;
+      color: #673ab7;
+      border: none;
+    }
+    .uArJbe.btn-secondary:hover {
+      background: rgba(103, 58, 183, 0.08);
+    }
+    .btn-clear {
+      font-size: 13px;
+      color: #5f6368;
+      cursor: pointer;
+      padding: 8px 12px;
+      border: none;
+      background: transparent;
+      border-radius: 4px;
+    }
+    .btn-clear:hover {
+      color: #202124;
+      background: rgba(0,0,0,0.04);
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .progress-bar-bg {
+      flex: 1;
+      height: 8px;
+      background: #e0d4f3;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: #673ab7;
+      transition: width 0.3s ease;
+    }
+    .progress-text {
+      font-size: 12px;
+      color: #5f6368;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* Page Visibility */
+    .form-page {
+      display: none;
+    }
+    .form-page.active {
+      display: block;
+    }
+
+    /* Submission confirmation card */
+    .confirm-card {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      padding: 32px 24px;
+      margin-top: 24px;
+      border-top: 10px solid #673ab7;
+    }
+    .confirm-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #202124;
+      margin-bottom: 14px;
+    }
+    .confirm-desc {
+      font-size: 14px;
+      color: #3c4043;
+      margin-bottom: 24px;
+    }
+    .confirm-link {
+      color: #673ab7;
+      font-size: 14px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    /* Floating quickexam shortcut badge */
+    .qe-tester-badge {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 10px 14px;
+      color: #f8fafc;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      z-index: 99999;
+    }
+    .qe-tester-badge kbd {
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: monospace;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="gform-top-accent"></div>
+
+  <div class="form-container">
+    <form id="mG61Hd" class="freebirdFormviewerViewFormContent" action="javascript:void(0);">
+      
+      <!-- HEADER CARD (Selalu tampil di awal form) -->
+      <div class="card header-card" id="topHeaderCard">
+        <h1 class="form-title">Kuis Pemrograman Berorientasi Objek (Java PBO)</h1>
+        <p class="form-desc">Ujian Evaluasi Kompetensi Mahasiswa dalam Pemrograman Berorientasi Objek Java.
+Materi meliputi: Konsep Dasar Pewarisan (Inheritance), Polimorfisme (Polymorphism), Kelas Abstrak (Abstract Class), dan Antarmuka (Interface).
+
+Silakan jawab seluruh pertanyaan dengan seksama. Ekstensi QuickExam didukung penuh untuk pengerjaan otomatis dan navigasi multi-halaman.</p>
+        <div class="account-badge">
+          <div>Akun: <span class="account-email">ali.mahasiswa@univ.ac.id</span> (tidak dibagikan)</div>
+          <span style="color:#673ab7; cursor:pointer;">Beralih akun</span>
+        </div>
+        <div class="required-notice">* Menunjukkan pertanyaan yang wajib diisi</div>
+      </div>
+
+      <!-- PROGRESS TRACKER -->
+      <div class="progress-container" id="progressContainer">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBarFill" style="width: 33%;"></div>
+        </div>
+        <div class="progress-text" id="progressText">Halaman 1 dari 3</div>
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- HALAMAN 1: IDENTITAS & BAGIAN 1 - INHERITANCE        -->
+      <!-- ==================================================== -->
+      <div class="form-page active" id="page1">
+        
+        <!-- Identitas Mahasiswa -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">Nama Lengkap Mahasiswa <span class="req-star">*</span></div>
+          <div class="input-underline-wrap">
+            <input type="text" class="whsOnd zHQkBf" name="entry_nama" placeholder="Jawaban Anda" value="Ali Ramadhan" required>
+          </div>
+        </div>
+
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">Nomor Induk Mahasiswa (NIM) <span class="req-star">*</span></div>
+          <div class="input-underline-wrap">
+            <input type="text" class="whsOnd zHQkBf" name="entry_nim" placeholder="Jawaban Anda" value="230101088" required>
+          </div>
+        </div>
+
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">Kelas Perkuliahan PBO <span class="req-star">*</span></div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE is-checked" role="radio" aria-checked="true" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="entry_kelas" value="TI-3A" checked style="display:none;">
+                <span class="aDTYNe snByac">TI-3A (Reguler Pagi)</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="entry_kelas" value="TI-3B" style="display:none;">
+                <span class="aDTYNe snByac">TI-3B (Reguler Pagi)</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="entry_kelas" value="TI-3C" style="display:none;">
+                <span class="aDTYNe snByac">TI-3C (Karyawan)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 1: Inheritance Keyword -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            1. Di dalam bahasa pemrograman Java, kata kunci (keyword) manakah yang digunakan oleh sebuah subclass untuk mewarisi atribut dan method dari sebuah superclass? <span class="req-star">*</span>
+          </div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q1" value="implements" style="display:none;">
+                <span class="aDTYNe snByac">implements</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q1" value="extends" style="display:none;">
+                <span class="aDTYNe snByac">extends</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q1" value="inherits" style="display:none;">
+                <span class="aDTYNe snByac">inherits</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q1" value="subclass" style="display:none;">
+                <span class="aDTYNe snByac">subclass</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 2: Code inheritance -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            2. Perhatikan potongan kode hierarki pewarisan di bawah ini. Manakah pernyataan yang paling TEPAT mengenai kode tersebut? <span class="req-star">*</span>
+          </div>
+          <div class="code-box">class Kendaraan {
+    protected String merk = "Toyota";
+}
+
+class Mobil extends Kendaraan {
+    public void klakson() {
+        System.out.println("Tiiin!");
+    }
+}</div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q2" value="A" style="display:none;">
+                <span class="aDTYNe snByac">Java mendukung Multiple Inheritance antar-class secara langsung via extends</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q2" value="B" style="display:none;">
+                <span class="aDTYNe snByac">Class Mobil mewarisi atribut merk dari Kendaraan karena modifier-nya protected</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q2" value="C" style="display:none;">
+                <span class="aDTYNe snByac">Class Kendaraan secara otomatis dapat memanggil method klakson() dari Mobil</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q2" value="D" style="display:none;">
+                <span class="aDTYNe snByac">Objek Kendaraan k = new Kendaraan() dapat langsung memanggil k.klakson()</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 3: Constructor Super -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            3. Apa aturan paling mendasar mengenai penulisan pemanggilan konstruktor superclass dengan kata kunci "super()" di dalam konstruktor subclass? <span class="req-star">*</span>
+          </div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q3" value="A" style="display:none;">
+                <span class="aDTYNe snByac">Boleh diletakkan di baris mana saja selama masih dalam blok konstruktor</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q3" value="B" style="display:none;">
+                <span class="aDTYNe snByac">Harus menjadi pernyataan pertama (first statement) di dalam konstruktor subclass</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q3" value="C" style="display:none;">
+                <span class="aDTYNe snByac">Harus diletakkan di baris paling terakhir sebelum penutupan kurung kurawal</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q3" value="D" style="display:none;">
+                <span class="aDTYNe snByac">Hanya boleh dipanggil jika method tersebut dideklarasikan sebagai static</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 4: Final class -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            4. Apa akibatnya jika sebuah class di Java dideklarasikan dengan kata kunci "final"? Contoh: final class Keamanan { ... } <span class="req-star">*</span>
+          </div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q4" value="A" style="display:none;">
+                <span class="aDTYNe snByac">Class tersebut tidak bisa memiliki method konkrit</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q4" value="B" style="display:none;">
+                <span class="aDTYNe snByac">Class tersebut tidak dapat diwarisi (tidak bisa dijadikan superclass oleh class manapun)</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q4" value="C" style="display:none;">
+                <span class="aDTYNe snByac">Semua method di dalam class tersebut otomatis menjadi method abstract</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q4" value="D" style="display:none;">
+                <span class="aDTYNe snByac">Objek dari class tersebut tidak dapat dibuat menggunakan operator new</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigasi Halaman 1 -->
+        <div class="gform-nav-bar">
+          <div class="gform-nav-left">
+            <div role="button" class="uArJbe y5DuKc M9Bg4d btn-berikutnya" tabindex="0" onclick="goToPage(2)">
+              Berikutnya
+            </div>
+          </div>
+          <button type="button" class="btn-clear" onclick="clearCurrentPage(1)">Kosongkan formulir</button>
+        </div>
+
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- HALAMAN 2: BAGIAN 2 - POLYMORPHISM                   -->
+      <!-- ==================================================== -->
+      <div class="form-page" id="page2">
+        <div class="section-card">
+          <h2>Bagian 2 dari 3: Konsep Polimorfisme (Polymorphism)</h2>
+          <p>Materi mengenai Method Overriding, Dynamic Method Dispatch, dan Aturan Polymorphism pada Java OOP.</p>
+        </div>
+
+        <!-- Soal 5: Overriding Definition -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            5. Manakah pernyataan yang paling tepat mendefinisikan konsep "Method Overriding" dalam Java? <span class="req-star">*</span>
+          </div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q5" value="A" style="display:none;">
+                <span class="aDTYNe snByac">Mendefinisikan method dengan nama yang sama tetapi parameter berbeda dalam satu kelas yang sama</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q5" value="B" style="display:none;">
+                <span class="aDTYNe snByac">Subclass menulis ulang implementasi method milik superclass dengan nama, return type, dan parameter yang identik persis</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q5" value="C" style="display:none;">
+                <span class="aDTYNe snByac">Mengubah visibilitas method dari public menjadi private di dalam subclass</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q5" value="D" style="display:none;">
+                <span class="aDTYNe snByac">Membuat beberapa konstruktor dengan daftar parameter yang bervariasi</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 6: Output Polymorphism -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            6. Perhatikan potongan kode Dynamic Method Dispatch berikut. Apakah teks yang akan dicetak ke konsol? <span class="req-star">*</span>
+          </div>
+          <div class="code-box">class Hewan {
+    void bersuara() {
+        System.out.print("Suara Hewan ");
+    }
+}
+
+class Kucing extends Hewan {
+    @Override
+    void bersuara() {
+        System.out.print("Meong ");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Hewan h = new Kucing();
+        h.bersuara();
+    }
+}</div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q6" value="A" style="display:none;">
+                <span class="aDTYNe snByac">Suara Hewan</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q6" value="B" style="display:none;">
+                <span class="aDTYNe snByac">Meong</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q6" value="C" style="display:none;">
+                <span class="aDTYNe snByac">Suara Hewan Meong</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q6" value="D" style="display:none;">
+                <span class="aDTYNe snByac">Terjadi Compile-time Error karena tipe referensi tidak cocok dengan objek</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 7: Anotasi @Override -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            7. Apa fungsi utama dari penulisan anotasi "@Override" di atas method pada bahasa pemrograman Java? <span class="req-star">*</span>
+          </div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q7" value="A" style="display:none;">
+                <span class="aDTYNe snByac">Wajib ditulis, jika tidak ditulis maka Java tidak akan menganggap method tersebut sebagai overriding</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q7" value="B" style="display:none;">
+                <span class="aDTYNe snByac">Membantu compiler memverifikasi bahwa method tersebut benar-benar meng-override method yang ada di superclass</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q7" value="C" style="display:none;">
+                <span class="aDTYNe snByac">Membuat performa eksekusi program menjadi 2x lebih cepat saat runtime</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q7" value="D" style="display:none;">
+                <span class="aDTYNe snByac">Menghilangkan kewajiban method untuk memiliki return type</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 8: Checkbox Syarat Overriding -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            8. Manakah dari aturan berikut yang WAJIB dipenuhi dalam aturan Method Overriding di Java? (Pilih jawaban yang benar) <span class="req-star">*</span>
+          </div>
+          <div role="group">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="checkbox-box" role="checkbox" aria-checked="false" tabindex="0">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <input type="checkbox" name="q8" value="A" style="display:none;">
+                <span class="aDTYNe snByac">Nama method dan daftar tipe parameter harus identik persis dengan yang ada di superclass</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="checkbox-box" role="checkbox" aria-checked="false" tabindex="0">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <input type="checkbox" name="q8" value="B" style="display:none;">
+                <span class="aDTYNe snByac">Modifier akses method pada subclass tidak boleh lebih restriktif daripada method superclass</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="checkbox-box" role="checkbox" aria-checked="false" tabindex="0">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <input type="checkbox" name="q8" value="C" style="display:none;">
+                <span class="aDTYNe snByac">Method yang memiliki modifier private atau static pada superclass dapat di-override</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigasi Halaman 2 -->
+        <div class="gform-nav-bar">
+          <div class="gform-nav-left">
+            <div role="button" class="uArJbe y5DuKc btn-secondary btn-kembali" tabindex="0" onclick="goToPage(1)">
+              Kembali
+            </div>
+            <div role="button" class="uArJbe y5DuKc M9Bg4d btn-berikutnya" tabindex="0" onclick="goToPage(3)">
+              Berikutnya
+            </div>
+          </div>
+          <button type="button" class="btn-clear" onclick="clearCurrentPage(2)">Kosongkan formulir</button>
+        </div>
+
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- HALAMAN 3: BAGIAN 3 - ABSTRACT CLASS & INTERFACE     -->
+      <!-- ==================================================== -->
+      <div class="form-page" id="page3">
+        <div class="section-card">
+          <h2>Bagian 3 dari 3: Abstract Class & Interface</h2>
+          <p>Materi mengenai Desain Kelas Abstrak, Kontrak Interface, Default Method, dan Penerapannya.</p>
+        </div>
+
+        <!-- Soal 9: Instansiasi Abstract Class -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            9. Pernyataan manakah yang BENAR mengenai sebuah kelas abstrak (abstract class) di Java? <span class="req-star">*</span>
+          </div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q9" value="A" style="display:none;">
+                <span class="aDTYNe snByac">Objek langsung dari abstract class dapat diinstansiasi menggunakan operator new (contoh: new Bentuk())</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q9" value="B" style="display:none;">
+                <span class="aDTYNe snByac">Abstract class tidak dapat diinstansiasi secara langsung menjadi objek via new</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q9" value="C" style="display:none;">
+                <span class="aDTYNe snByac">Abstract class tidak diizinkan memiliki atribut (field data) maupun konstruktor</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q9" value="D" style="display:none;">
+                <span class="aDTYNe snByac">Sebuah class harus memiliki minimal 1 method abstract agar bisa diberi kata kunci abstract</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 10: Interface Multiple Implementation -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            10. Bagaimanakah kemampuan Java dalam mengimplementasikan antarmuka (interface) ganda pada sebuah kelas? <span class="req-star">*</span>
+          </div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q10" value="A" style="display:none;">
+                <span class="aDTYNe snByac">Sebuah class hanya diizinkan mengimplementasikan tepat satu interface</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q10" value="B" style="display:none;">
+                <span class="aDTYNe snByac">Sebuah class dapat mengimplementasikan banyak interface sekaligus (multiple interfaces) dengan dipisahkan tanda koma</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q10" value="C" style="display:none;">
+                <span class="aDTYNe snByac">Interface hanya dapat diimplementasikan oleh abstract class, bukan oleh class konkrit</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q10" value="D" style="display:none;">
+                <span class="aDTYNe snByac">Multiple interface hanya didukung jika interface tersebut tidak memiliki method apapun</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 11: Variabel dalam Interface -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            11. Secara default di Java, variabel yang dideklarasikan di dalam sebuah interface memiliki sifat modifier implisit apa? <span class="req-star">*</span>
+          </div>
+          <div role="radiogroup">
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q11" value="A" style="display:none;">
+                <span class="aDTYNe snByac">private static final</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q11" value="B" style="display:none;">
+                <span class="aDTYNe snByac">public static final (konstanta)</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q11" value="C" style="display:none;">
+                <span class="aDTYNe snByac">protected transient</span>
+              </label>
+            </div>
+            <div class="docssharedWizToggleLabeledContainer">
+              <label class="docssharedWizToggleLabeledLabelWrapper">
+                <div class="Od2FE" role="radio" aria-checked="false" tabindex="0"><div class="radio-dot"></div></div>
+                <input type="radio" name="q11" value="D" style="display:none;">
+                <span class="aDTYNe snByac">package-private volatile</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soal 12: Isian Singkat Keyword Interface -->
+        <div class="card geS5n" role="listitem">
+          <div class="M7eMe" role="heading" aria-level="3">
+            12. Sebutkan kata kunci (keyword) yang digunakan oleh sebuah class untuk menerapkan (mengimplementasikan) sebuah interface di Java! <span class="req-star">*</span>
+          </div>
+          <div class="input-underline-wrap">
+            <input type="text" class="whsOnd zHQkBf" name="q12" placeholder="Jawaban Anda" autocomplete="off">
+          </div>
+        </div>
+
+        <!-- Navigasi Halaman 3 (Kirim / Submit) -->
+        <div class="gform-nav-bar">
+          <div class="gform-nav-left">
+            <div role="button" class="uArJbe y5DuKc btn-secondary btn-kembali" tabindex="0" onclick="goToPage(2)">
+              Kembali
+            </div>
+            <div role="button" class="uArJbe y5DuKc M9Bg4d btn-kirim" tabindex="0" onclick="submitForm()">
+              Kirim
+            </div>
+          </div>
+          <button type="button" class="btn-clear" onclick="clearCurrentPage(3)">Kosongkan formulir</button>
+        </div>
+
+      </div>
+
+    </form>
+
+    <!-- TAMPILAN SETELAH KIRIM (CONFIRMATION CARD) -->
+    <div class="confirm-card" id="confirmCard">
+      <h2 class="confirm-title">Kuis Pemrograman Berorientasi Objek (Java PBO)</h2>
+      <p class="confirm-desc">Tanggapan Anda telah direkam.</p>
+      <a class="confirm-link" onclick="restartForm()">Kirim tanggapan lain</a>
+    </div>
+
+  </div>
+
+  <!-- FLOATING QUICKEXAM SHORTCUT BADGE -->
+  <div class="qe-tester-badge">
+    <span>⚡ QuickExam Testing Hub: Tekan</span>
+    <kbd>Alt + B</kbd>
+    <span>untuk buka HUD</span>
+  </div>
+
+  <script>
+    let currentPage = 1;
+    const totalPages = 3;
+
+    function goToPage(page) {
+      if (page < 1 || page > totalPages) return;
+      document.querySelectorAll('.form-page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('page' + page);
+      if (target) {
+        target.classList.add('active');
+        currentPage = page;
+        updateProgress();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function updateProgress() {
+      const fill = document.getElementById('progressBarFill');
+      const text = document.getElementById('progressText');
+      if (fill && text) {
+        const pct = Math.round((currentPage / totalPages) * 100);
+        fill.style.width = pct + '%';
+        text.textContent = 'Halaman ' + currentPage + ' dari ' + totalPages;
+      }
+    }
+
+    function submitForm() {
+      document.getElementById('mG61Hd').style.display = 'none';
+      document.getElementById('topHeaderCard').style.display = 'none';
+      document.getElementById('progressContainer').style.display = 'none';
+      document.getElementById('confirmCard').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function restartForm() {
+      document.getElementById('mG61Hd').reset();
+      document.querySelectorAll('.Od2FE').forEach(el => {
+        el.classList.remove('is-checked');
+        el.setAttribute('aria-checked', 'false');
+      });
+      document.querySelectorAll('.checkbox-box').forEach(el => {
+        el.classList.remove('is-checked');
+        el.setAttribute('aria-checked', 'false');
+      });
+      document.getElementById('mG61Hd').style.display = 'block';
+      document.getElementById('topHeaderCard').style.display = 'block';
+      document.getElementById('progressContainer').style.display = 'flex';
+      document.getElementById('confirmCard').style.display = 'none';
+      goToPage(1);
+    }
+
+    function clearCurrentPage(pageNum) {
+      const pageEl = document.getElementById('page' + pageNum);
+      if (!pageEl) return;
+      pageEl.querySelectorAll('input[type="text"]').forEach(i => i.value = '');
+      pageEl.querySelectorAll('.Od2FE').forEach(el => {
+        el.classList.remove('is-checked');
+        el.setAttribute('aria-checked', 'false');
+      });
+      pageEl.querySelectorAll('.checkbox-box').forEach(el => {
+        el.classList.remove('is-checked');
+        el.setAttribute('aria-checked', 'false');
+      });
+      pageEl.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(i => i.checked = false);
+    }
+
+    // Interactive event listeners for radio & checkbox
+    document.addEventListener('click', function(e) {
+      // 1. Radio Click
+      const radioContainer = e.target.closest('.docssharedWizToggleLabeledContainer');
+      if (radioContainer) {
+        const group = radioContainer.closest('[role="radiogroup"]');
+        const radioBox = radioContainer.querySelector('.Od2FE');
+        const radioInput = radioContainer.querySelector('input[type="radio"]');
+
+        if (group && radioBox) {
+          // Uncheck all in group
+          group.querySelectorAll('.Od2FE').forEach(r => {
+            r.classList.remove('is-checked');
+            r.setAttribute('aria-checked', 'false');
+          });
+          group.querySelectorAll('input[type="radio"]').forEach(inp => inp.checked = false);
+
+          // Check clicked
+          radioBox.classList.add('is-checked');
+          radioBox.setAttribute('aria-checked', 'true');
+          if (radioInput) radioInput.checked = true;
+          return;
+        }
+
+        // 2. Checkbox Click
+        const checkGroup = radioContainer.closest('[role="group"]');
+        const chkBox = radioContainer.querySelector('.checkbox-box');
+        const chkInput = radioContainer.querySelector('input[type="checkbox"]');
+        if (checkGroup && chkBox) {
+          const isCurrentlyChecked = chkBox.classList.contains('is-checked');
+          if (isCurrentlyChecked) {
+            chkBox.classList.remove('is-checked');
+            chkBox.setAttribute('aria-checked', 'false');
+            if (chkInput) chkInput.checked = false;
+          } else {
+            chkBox.classList.add('is-checked');
+            chkBox.setAttribute('aria-checked', 'true');
+            if (chkInput) chkInput.checked = true;
+          }
+        }
+      }
+    });
+
+    // Keyboard accessibility for radio & checkbox
+    document.addEventListener('keydown', function(e) {
+      if (e.key === ' ' || e.key === 'Enter') {
+        const target = e.target;
+        if (target && (target.getAttribute('role') === 'radio' || target.getAttribute('role') === 'checkbox' || target.getAttribute('role') === 'button')) {
+          e.preventDefault();
+          target.click();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

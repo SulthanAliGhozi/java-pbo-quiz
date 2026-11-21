@@ -122,6 +122,19 @@ export function Header({
               </button>
             </div>
 
+            {/* Tombol Khusus: Simulasi Google Form Asli untuk Uji Coba QuickExam */}
+            <a
+              href="./google-form.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold rounded-xl text-xs transition-all shadow-md shadow-purple-950/40 border border-purple-400/30 active:scale-95 cursor-pointer"
+              title="Buka Simulasi Google Forms Persis untuk Pengujian Ekstensi QuickExam (Multi-Halaman & Next Page)"
+            >
+              <span className="text-sm">📋</span>
+              <span className="hidden sm:inline">Google Form Test</span>
+              <span className="sm:hidden">G-Form</span>
+            </a>
+
             {/* Quick Back to Quiz Button when in Modul or Video view */}
             {viewMode !== 'quiz' && (
               <button
